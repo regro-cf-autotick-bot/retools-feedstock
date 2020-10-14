@@ -28,7 +28,6 @@ requirements:
 test:
   imports:
     - retools
-    - retools.tests
   commands:
     - pip check
   requires:
