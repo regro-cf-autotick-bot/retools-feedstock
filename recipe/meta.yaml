@@ -22,7 +22,7 @@ requirements:
     - python
   run:
     - python
-    - redis >=2.7.3
+    - redis-py >=2.7.3  # called redis on PyPI and redis-py on conda-forge; importable as 'redis'
     - setproctitle >=1.1.2
 
 test:
