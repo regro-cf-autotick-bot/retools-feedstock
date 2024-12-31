@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/retools-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/retools-{{ version }}.tar.gz
   sha256: db62e47248d023536ab9b1391381e3c2cd169bc109cf5ae35c5a2e4f7fc54e4b
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -19,9 +19,9 @@ requirements:
   host:
     - nose
     - pip
-    - python
+    - python {{ python_min }}
   run:
-    - python
+    - python >={{ python_min }}
     - redis-py >=2.7.3  # called redis on PyPI and redis-py on conda-forge; importable as 'redis'
     - setproctitle >=1.1.2
 
@@ -32,6 +32,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: http://readthedocs.org/docs/retools/
